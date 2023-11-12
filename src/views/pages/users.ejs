@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="/css/style-user.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-menu">
+        <div class="back-home">
+          <h1>Users</h1>
+          <button id="backButton">Back to Home</button>
+        </div>
+
+        <div class="add-user-form">
+          <h2>Add New User</h2>
+          <form id="newUserForm">
+            <div class="form-row">
+              <input
+                type="text"
+                id="userName"
+                name="user_name"
+                placeholder="User Name"
+                required
+              />
+              <input
+                type="email"
+                id="userEmail"
+                name="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <input
+                type="password"
+                id="userPassword"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <select id="userRole" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+            </div>
+            <button type="submit">Add User</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="user-list">
+        <% users.forEach(function(user) { %>
+        <div class="user-card">
+          <h2><%= user.user_name %></h2>
+          <p>Email: <%= user.email %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>

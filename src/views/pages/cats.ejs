@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cats</title>
+    <link rel="stylesheet" href="/css/style-cat.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-menu">
+        <div class="back-home">
+          <h1>Cats</h1>
+          <button id="backButton">Back to Home</button>
+        </div>
+
+        <div class="add-cat-form">
+          <h2>Add New Cat</h2>
+          <form id="newCatForm">
+            <div class="form-row">
+              <input
+                type="text"
+                id="catName"
+                name="cat_name"
+                placeholder="Cat Name"
+                required
+              />
+              <input
+                type="number"
+                id="catWeight"
+                name="weight"
+                placeholder="Weight"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <input type="date" id="catBirthdate" name="birthdate" required />
+              <input
+                type="text"
+                id="catOwner"
+                name="owner"
+                placeholder="Owner ID"
+                value="6548d5ab9f50a36a5915d4d7"
+                required
+              />
+            </div>
+            <button type="submit">Add Cat</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="cat-list">
+        <% cats.forEach(function(cat) { %>
+        <div class="cat-card">
+          <h2><%= cat.cat_name %></h2>
+          <p>Weight: <%= cat.weight %> kg</p>
+          <p>Birthdate: <%= new Date(cat.birthdate).toDateString() %></p>
+          <p>Owner: <%= cat.owner.user_name %></p>
+          <p>Email: <%= cat.owner.email %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>
